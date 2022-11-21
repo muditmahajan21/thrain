@@ -25,8 +25,9 @@ def generate_private_key(length):
 	while (_rand.bit_length() < length):
 		#TODO: Can use Crypto library hash functions
 		hex_key = binascii.b2a_hex(os.urandom(_bytes))
+		
 		#Convert to denary format
-		_rand = int(hex_key.encode('hex'),16)
+		_rand = int(hex_key, 16)
 	#Update object
 	private_key = _rand
 	return private_key
@@ -38,15 +39,14 @@ def generate_public_key(private_key):
 
 #Secret key = public key ^ private key % q
 def generate_secret(private_key, public_key):
-	#Formula
-	secret = pow(long(public_key), long(private_key), prime)
-	try:
-		secret_bytes = secret.to_bytes(
-			shared_secret.bit_length() // 8 + 1, byteorder="big")
-	except AttributeError:
-		secret_bytes = str(secret)
-	#Generate hash key using SHA256 
-	key = hashlib.sha256()
-	key.update(bytes(secret_bytes))
-	secretKey = key.hexdigest()
-	return secretKey	
+
+	secret = pow((public_key), (private_key), prime)
+	return secret
+
+
+privateKey = generate_private_key(key_length)
+print("Private Key: ", privateKey)
+publicKey = generate_public_key((privateKey))
+print("Public Key: ", publicKey)
+sharedSecret = generate_secret(privateKey, publicKey)
+print("Shared Secret: ", sharedSecret)
