@@ -58,7 +58,7 @@ def download_public_key(username):
 def download_file(filename):
 	filepath = UPLOAD_FOLDER+filename
 	if(os.path.isfile(filepath)):
-		return send_file(filepath, attachment_filename='fileMessage-thrainSecurity.txt',as_attachment=True)
+		return send_file(filepath, attachment_filename='fileMessage-SECURE_DATA_TRANSFER_USING_KEY_EXCHANGE_PROTOCOL_BASED_ON_CLOUDSecurity.txt',as_attachment=True)
 	else:
 		return render_template('file-list.html',msg='An issue encountered, our team is working on that')
 

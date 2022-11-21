@@ -223,9 +223,9 @@ def main():
 	ABOUTUS-SECTION
 	-------------------------------------------------------------
 	'''	
-	intro = Label(Aboutus, text="\nthrain - A secure file transfer system")
+	intro = Label(Aboutus, text="\nSECURE DATA TRANSFER USING KEY EXCHANGE PROTOCOL BASED ON CLOUD - A secure file transfer system")
 	intro.grid(row=0)
-	text1 = Label(Aboutus, text="\nThrain enables its users to securely\ntransfer files in 'txt' format without\nany third party eavesdropping\n")
+	text1 = Label(Aboutus, text="\nSECURE DATA TRANSFER USING KEY EXCHANGE PROTOCOL BASED ON CLOUD enables its users to securely\ntransfer files in 'txt' format without\nany third party eavesdropping\n")
 	text1.grid(row=1)
 	githublink = Label(Aboutus, text="Know More", fg="blue", cursor="hand2")
 	githublink.bind("<Button-1>", opengithub)
