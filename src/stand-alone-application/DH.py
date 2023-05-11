@@ -44,6 +44,16 @@ def generate_secret(private_key, public_key):
 	return secret
 
 
+def prime_number(n):
+    out = list()
+    sieve = [True] * (n+1)
+    for p in range(2, n+1):
+        if (sieve[p] and sieve[p]%2==1):
+            out.append(p)
+            for i in range(p, n+1, p):
+                sieve[i] = False
+    return out
+
 privateKey = generate_private_key(key_length)
 print("Private Key: ", privateKey)
 publicKey = generate_public_key((privateKey))
